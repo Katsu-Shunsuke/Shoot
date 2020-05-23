@@ -11,11 +11,19 @@ public class PlayerMovingScript : MonoBehaviour
 
     //投げる物体
     public GameObject throwimgObject;
+    //ScoreManegeScriptを参照するため
+    public GameObject scoreManagement;
+
+    //前に進むスピード
+    public Vector3 forwardSpeed;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         m_rigidbody = GetComponent<Rigidbody>();
+
+        //進む時のスピード設定
+        forwardSpeed = new Vector3(0.0f, 0.0f, 0.1f);
     }
 
 
@@ -39,7 +47,7 @@ public class PlayerMovingScript : MonoBehaviour
         }
 
         //常に前に進む
-        transform.position += new Vector3(0.0f, 0.0f, 0.1f);
+        transform.position += forwardSpeed;
 
         //マウスで回転するための関数呼び出し
         RotateCamera();
@@ -63,7 +71,7 @@ public class PlayerMovingScript : MonoBehaviour
     }
 
     //ボールを投げる
-    private void Throwingball()
+    void Throwingball()
     {
         //ボールを生成
         GameObject ball = Instantiate(throwimgObject, this.transform.position,Quaternion.identity);
@@ -73,11 +81,9 @@ public class PlayerMovingScript : MonoBehaviour
         rid.AddForce(this.transform.forward * rid.mass * 20.0f, ForceMode.Impulse);
 
         //生成したボールを３秒後に消す
-        Invoke("Des", 3.0f);
-    }
+        Destroy(ball,2.5f);
 
-    private void Des()
-    {
-        Destroy();
+        //ボールのコスト分お金を減らす
+        scoreManagement.GetComponent<ScoreManageScript>().ballcost();
     }
 }
