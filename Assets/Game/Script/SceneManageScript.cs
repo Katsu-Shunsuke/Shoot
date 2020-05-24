@@ -14,15 +14,16 @@ public class SceneManageScript : MonoBehaviour
 
     //timeupの時
     public Text timeuptext;
-
-    //PlayermovingScriptを参照するため
-    public GameObject mainCamera;
+    //ゲーム中か
+    public bool nowPlaying;
 
     void Start()
     {
         //時間制限は
         limittime = 10.0f;
         timer = limittime;
+
+        nowPlaying = true;
     }
 
     void Update()
@@ -37,10 +38,17 @@ public class SceneManageScript : MonoBehaviour
             timer = 0.00f;
             timetext.text = "TIme:" + timer.ToString("f2");
 
+            nowPlaying = false;
+
             timeuptext.text="Time Up!!";
+
+            //PlayermovingScriptを参照するため
+            GameObject mainCamera=GameObject.Find("Main Camera");
 
             //Playerを止める
             mainCamera.GetComponent<PlayerMovingScript>().forwardSpeed=new Vector3(0,0,0);
+
+            
 
             //sceneを５秒後にscoresceneに移動する
             Invoke("Exitgame",5.0f);
@@ -48,6 +56,8 @@ public class SceneManageScript : MonoBehaviour
     }
     void Exitgame()
     {
-
+        SceneManager.LoadScene("HomeScene");
+        Cursor.lockState = CursorLockMode.None;
     }
+    
 }

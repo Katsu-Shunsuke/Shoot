@@ -7,11 +7,18 @@ public class ScoreManageScript : MonoBehaviour
 {
     //スコアを入れる
     public Text scoretext;
-    public int score;
+    //最終スコアを入れる
+    public Text finalscore;
+    //スコア
+    public static int score;
+    //最初のスコア
+    public int firstscore;
+
     
     void Start()
     {
-        score = 100;
+        score = PlayerPrefs.GetInt("Score");
+        firstscore = score;
     }
 
     void Update()
@@ -19,16 +26,32 @@ public class ScoreManageScript : MonoBehaviour
         //textに入力
         scoretext.text = score + "円";
 
+        GameObject SceneManagemenet = GameObject.Find("SceneManagement");
+        if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == false)
+        {
+            int oneplayscore= score - firstscore;
+            finalscore.text = oneplayscore + "円稼ぎました！";
+
+            PlayerPrefs.SetInt("Score", score);
+
+            if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
+            {
+                PlayerPrefs.SetInt("OnePlayScore", oneplayscore);
+            }
+        }
+
     }
+
     //TargetObjectから
-    public void AddScore()
+    public static void AddScore()
     {
         //スコアを100追加
         score += 100;
         
     }
+
     //PlayerMovingScriptから
-    public void ballcost()
+    public static void ballcost()
     {
         score -= 10;
     }

@@ -11,9 +11,7 @@ public class PlayerMovingScript : MonoBehaviour
 
     //投げる物体
     public GameObject throwimgObject;
-    //ScoreManegeScriptを参照するため
-    public GameObject scoreManagement;
-
+    
     //前に進むスピード
     public Vector3 forwardSpeed;
 
@@ -75,8 +73,10 @@ public class PlayerMovingScript : MonoBehaviour
     {
         //ボールを生成
         GameObject ball = Instantiate(throwimgObject, this.transform.position,Quaternion.identity);
+
         //生成されたオブジェクトのコンポーネントを取得
         Rigidbody rid = ball.GetComponent<Rigidbody>();
+
         //ボールに力を加える
         rid.AddForce(this.transform.forward * rid.mass * 20.0f, ForceMode.Impulse);
 
@@ -84,6 +84,6 @@ public class PlayerMovingScript : MonoBehaviour
         Destroy(ball,2.5f);
 
         //ボールのコスト分お金を減らす
-        scoreManagement.GetComponent<ScoreManageScript>().ballcost();
+        ScoreManageScript.ballcost();
     }
 }
