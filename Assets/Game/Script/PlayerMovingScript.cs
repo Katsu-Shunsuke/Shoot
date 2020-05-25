@@ -83,7 +83,16 @@ public class PlayerMovingScript : MonoBehaviour
         //生成したボールを３秒後に消す
         Destroy(ball,2.5f);
 
-        //ボールのコスト分お金を減らす
-        ScoreManageScript.ballcost();
+        GameObject SceneManagement = GameObject.Find("SceneManagement");
+
+        //ゲーム中だったら
+        if (SceneManagement.GetComponent<SceneManageScript>().nowPlaying == true)
+        {
+            //ボールのコスト分お金を減らす
+            ScoreManageScript.ballcost();
+        }
+        
+        
+        
     }
 }

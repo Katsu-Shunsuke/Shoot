@@ -16,7 +16,6 @@ public class ButtonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Playnumber", 0);
         playnumbertext.text = "0回";
     }
 
@@ -28,8 +27,6 @@ public class ButtonScript : MonoBehaviour
         playnumbertext.text = PlayerPrefs.GetInt("Playnumber")+"回";
 
         highscore.text = "HIGH SCORE:"+PlayerPrefs.GetInt("OnePlayScore")+"円";
-
-        PlayerPrefs.SetInt("Playnumber", playnumber);
 
     }
 
@@ -45,7 +42,13 @@ public class ButtonScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Score", 100);
         PlayerPrefs.SetInt("Playnumber", 0);
+        PlayerPrefs.SetInt("ScoreUpLevel",1);
     }
+    public void OnClickShop()
+    {
+        SceneManager.LoadScene("ShopScene");
+    }
+
     void Playcount()
     {
         

@@ -59,5 +59,6 @@ public class SceneManageScript : MonoBehaviour
         SceneManager.LoadScene("HomeScene");
         Cursor.lockState = CursorLockMode.None;
     }
+
     
 }

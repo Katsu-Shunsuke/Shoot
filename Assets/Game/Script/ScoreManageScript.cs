@@ -17,6 +17,7 @@ public class ScoreManageScript : MonoBehaviour
     
     void Start()
     {
+        //今の金額
         score = PlayerPrefs.GetInt("Score");
         firstscore = score;
     }
@@ -34,6 +35,7 @@ public class ScoreManageScript : MonoBehaviour
 
             PlayerPrefs.SetInt("Score", score);
 
+            //highscoreを保存
             if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
             {
                 PlayerPrefs.SetInt("OnePlayScore", oneplayscore);
