@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManageScript : MonoBehaviour
 {
@@ -33,8 +34,6 @@ public class ScoreManageScript : MonoBehaviour
             int oneplayscore= score - firstscore;
             finalscore.text = oneplayscore + "円稼ぎました！";
 
-            PlayerPrefs.SetInt("Score", score);
-
             //highscoreを保存
             if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
             {
@@ -42,6 +41,14 @@ public class ScoreManageScript : MonoBehaviour
             }
         }
 
+
+        PlayerPrefs.SetInt("Score", score);
+
+        if (PlayerPrefs.GetInt("Score") <= 0)
+        {
+            SceneManager.LoadScene("GameOverScene");
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     //TargetObjectから

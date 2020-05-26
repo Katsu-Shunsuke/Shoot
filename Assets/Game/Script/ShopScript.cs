@@ -54,7 +54,7 @@ public class ShopScript : MonoBehaviour
     public void OnClickScoreUp()
     {
         scoreUpCost = PlayerPrefs.GetInt("ScoreUpLevel") * 100;
-        if (scoreUpCost <= PlayerPrefs.GetInt("Score"))
+        if (scoreUpCost < PlayerPrefs.GetInt("Score"))
         {
             scoreUpLevel++;
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - scoreUpCost);
