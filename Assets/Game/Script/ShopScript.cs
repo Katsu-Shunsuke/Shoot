@@ -29,7 +29,7 @@ public class ShopScript : MonoBehaviour
         scoreText.text = PlayerPrefs.GetInt("Score") + "円";
 
         //Text系
-        scoreUpTextNowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 1.0f);
+        scoreUpTextNowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
         scoreUpButtonText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel") + "\n" + (PlayerPrefs.GetInt("ScoreUpLevel")* 100) + "円";
 
         //ボタンの色

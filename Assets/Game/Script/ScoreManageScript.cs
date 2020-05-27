@@ -15,18 +15,22 @@ public class ScoreManageScript : MonoBehaviour
     //最初のスコア
     public int firstscore;
 
+    public static float combotimer;
+    public static int combo;
     
     void Start()
     {
         //今の金額
         score = PlayerPrefs.GetInt("Score");
         firstscore = score;
+
+        combotimer = 0f;
     }
 
     void Update()
     {
         //textに入力
-        scoretext.text = score + "円";
+        scoretext.text = score+ "円";
 
         GameObject SceneManagemenet = GameObject.Find("SceneManagement");
         if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == false)
@@ -37,7 +41,7 @@ public class ScoreManageScript : MonoBehaviour
             //highscoreを保存
             if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
             {
-                PlayerPrefs.SetInt("OnePlayScore", oneplayscore);
+                PlayerPrefs.SetFloat("OnePlayScore", oneplayscore);
             }
         }
 
@@ -49,19 +53,41 @@ public class ScoreManageScript : MonoBehaviour
             SceneManager.LoadScene("GameOverScene");
             Cursor.lockState = CursorLockMode.None;
         }
+
+        
+        combotimer -= Time.deltaTime;
+      
+        if (combotimer <= 0)
+        {
+            combotimer = 0f;
+            combo = 0;
+        }
+        Debug.Log(combotimer);
     }
 
     //TargetObjectから
     public static void AddScore()
     {
         //スコアを100追加
-        score += 100;
-        
+        float score_f = 100* ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score += (int)score_f;
+
+        Combo();
     }
 
-    //PlayerMovingScriptから
-    public static void ballcost()
+    public static void Combo()
     {
-        score -= 10;
+        combotimer = 3.0f;
+
+        if (combotimer > 0)
+        {
+            combo += 1;
+            
+        }
+        if(combotimer <= 0)
+        {
+            combo = 1;
+        }
     }
+   
 }
