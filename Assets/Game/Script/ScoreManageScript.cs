@@ -16,14 +16,19 @@ public class ScoreManageScript : MonoBehaviour
     public int firstscore;
 
     public static float combotimer;
-    public static int combo;
+    public static int combo=0;
+    public Text combotext;
+
+    public static float score_f;
+
+    public Text addScoreText;
     
     void Start()
     {
         //今の金額
         score = PlayerPrefs.GetInt("Score");
         firstscore = score;
-
+        combo = 0;
         combotimer = 0f;
     }
 
@@ -62,23 +67,28 @@ public class ScoreManageScript : MonoBehaviour
             combotimer = 0f;
             combo = 0;
         }
-        Debug.Log(combotimer);
+        combotext.text = "COMBO:" + combo;
+
+        addScoreText.text = "+" + score_f;
     }
 
     //TargetObjectから
     public static void AddScore()
     {
+        
         //スコアを100追加
-        float score_f = 100* ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score_f = 100* ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();
+        
     }
 
     public static void Combo()
     {
+        
         combotimer = 3.0f;
-
+        
         if (combotimer > 0)
         {
             combo += 1;

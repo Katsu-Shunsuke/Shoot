@@ -15,6 +15,8 @@ public class PlayerMovingScript : MonoBehaviour
     //前に進むスピード
     public Vector3 forwardSpeed;
 
+    public static int ballspeed = 20;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -78,7 +80,7 @@ public class PlayerMovingScript : MonoBehaviour
         Rigidbody rid = ball.GetComponent<Rigidbody>();
 
         //ボールに力を加える
-        rid.AddForce(this.transform.forward * rid.mass * 20.0f, ForceMode.Impulse);
+        rid.AddForce(this.transform.forward * rid.mass * ballspeed, ForceMode.Impulse);
 
         //生成したボールを３秒後に消す
         Destroy(ball,2.5f);

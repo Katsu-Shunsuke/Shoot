@@ -8,12 +8,14 @@ public class TargetScript : MonoBehaviour
     //的にアタッチするスクリプト
     //的が当たった時の光る部分
     public GameObject collisionchecker;
+    MeshRenderer checkermesh;
 
     // Start is called before the first frame update
     void Start()
     {
+        checkermesh = collisionchecker.GetComponent<MeshRenderer>();
         //的の初期設定
-        collisionchecker.SetActive(false);
+        checkermesh.enabled = false;
     }
 
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class TargetScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collisionchecker.activeSelf == false)
+        
+        if (checkermesh.enabled==false)
         {
             GameObject SceneManagement = GameObject.Find("SceneManagement");
 
@@ -32,7 +35,7 @@ public class TargetScript : MonoBehaviour
             if (SceneManagement.GetComponent<SceneManageScript>().nowPlaying == true)
             {
                 //衝突判定ランプ点灯
-                collisionchecker.SetActive(true);
+                checkermesh.enabled=true;
 
                 //１秒後に消える
                 Invoke("renewchecker", 1.0f);
@@ -45,6 +48,6 @@ public class TargetScript : MonoBehaviour
     //衝突判定ランプを消す
     private void renewchecker()
     {
-        collisionchecker.SetActive(false);
+        checkermesh.enabled = false;
     }
 }
