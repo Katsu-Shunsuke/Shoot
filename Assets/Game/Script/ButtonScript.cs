@@ -30,14 +30,6 @@ public class ButtonScript : MonoBehaviour
 
     }
 
-    public void OnClickGameStart()
-    {
-        SceneManager.LoadScene("GameScene");
-        playnumber++;
-        PlayerPrefs.SetInt("Playnumber", playnumber);
-
-    }
-
     public void OnClickReset()
     {
         PlayerPrefs.SetInt("Score", 100);

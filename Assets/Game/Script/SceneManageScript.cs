@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SceneManageScript : MonoBehaviour
 {
     //timerの設定
-    public float timer;
+    public static float timer;
     //時間制限
     public float limittime;
     public Text timetext;
@@ -58,6 +58,11 @@ public class SceneManageScript : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScene");
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public static void Combobonus()
+    {
+        timer += 3.0f;
     }
 
     

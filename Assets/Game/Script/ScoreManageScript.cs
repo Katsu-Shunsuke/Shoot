@@ -41,7 +41,7 @@ public class ScoreManageScript : MonoBehaviour
         if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == false)
         {
             int oneplayscore= score - firstscore;
-            finalscore.text = oneplayscore + "円稼ぎました！";
+            finalscore.text = "SCORE:"+oneplayscore;
 
             //highscoreを保存
             if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
@@ -87,7 +87,7 @@ public class ScoreManageScript : MonoBehaviour
     public static void Combo()
     {
         
-        combotimer = 3.0f;
+        combotimer = 2.0f;
         
         if (combotimer > 0)
         {
@@ -97,6 +97,11 @@ public class ScoreManageScript : MonoBehaviour
         if(combotimer <= 0)
         {
             combo = 1;
+        }
+
+        if(combo%5==0 & combo != 0)
+        {
+            SceneManageScript.Combobonus();
         }
     }
    

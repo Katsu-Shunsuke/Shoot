@@ -69,4 +69,11 @@ public class ShopScript : MonoBehaviour
         SceneManager.LoadScene("HomeScene");
     }
 
+    public void OnClickGameStart()
+    {
+        SceneManager.LoadScene("GameScene");
+        int playnumber = PlayerPrefs.GetInt("Playnumber") + 1;
+        PlayerPrefs.SetInt("Playnumber", playnumber);
+
+    }
 }
