@@ -21,8 +21,15 @@ public class ScoreManageScript : MonoBehaviour
 
     public static float score_f;
 
-    public Text addScoreText;
     
+    public Text addScoreText;
+
+    public int levelscoreever;
+    public static bool levelbool = true;
+
+    public static bool scorebool = true;
+    public int oneplayscore;
+
     void Start()
     {
         //今の金額
@@ -30,34 +37,52 @@ public class ScoreManageScript : MonoBehaviour
         firstscore = score;
         combo = 0;
         combotimer = 0f;
+
     }
 
     void Update()
     {
         //textに入力
+        
         scoretext.text = score+ "円";
 
         GameObject SceneManagemenet = GameObject.Find("SceneManagement");
         if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == false)
         {
-            int oneplayscore= score - firstscore;
-            finalscore.text = "SCORE:"+oneplayscore;
+            if (scorebool)
+            {
+                //ボーナスをたす
+                float finalscore_f = (score - firstscore) * ((PlayerPrefs.GetInt("Level") + 1) * 0.1f + 1) * (PlayerPrefs.GetInt("ScoreBonusLevel") * 0.1f + 1);
+                //ワンプレイスコア
+                oneplayscore = (int)finalscore_f;
+                finalscore.text = "SCORE:" + oneplayscore;
+
+                score = oneplayscore + firstscore;
+
+                scorebool = false;
+            }
+
+            if (levelbool)
+            {
+                levelscoreever = PlayerPrefs.GetInt("LevelScore") + oneplayscore;
+                PlayerPrefs.SetInt("LevelScore", levelscoreever);
+                levelbool = false;
+
+            }
+
 
             //highscoreを保存
             if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
             {
-                PlayerPrefs.SetFloat("OnePlayScore", oneplayscore);
+                PlayerPrefs.SetInt("OnePlayScore", oneplayscore);
             }
         }
 
+        
 
         PlayerPrefs.SetInt("Score", score);
 
-        if (PlayerPrefs.GetInt("Score") <= 0)
-        {
-            SceneManager.LoadScene("GameOverScene");
-            Cursor.lockState = CursorLockMode.None;
-        }
+       
 
         
         combotimer -= Time.deltaTime;
@@ -104,5 +129,6 @@ public class ScoreManageScript : MonoBehaviour
             SceneManageScript.Combobonus();
         }
     }
+
    
 }

@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 267370664}
   - component: {fileID: 267370663}
   m_Layer: 5
-  m_Name: ScoreUpNowText
+  m_Name: TimeBonusNowText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 469923346}
   - component: {fileID: 469923345}
   m_Layer: 5
-  m_Name: ScoreUpNowText
+  m_Name: ScoreBonusNowText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 709976871}
   - component: {fileID: 709976870}
   m_Layer: 5
-  m_Name: ScoreUpButtonText
+  m_Name: ScoreButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 846889571}
   - component: {fileID: 846889570}
   m_Layer: 5
-  m_Name: ScoreUpButtonText
+  m_Name: TimeBonusButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1326,6 +1326,7 @@ GameObject:
   - component: {fileID: 1172820339}
   - component: {fileID: 1172820338}
   - component: {fileID: 1172820337}
+  - component: {fileID: 1172820336}
   m_Layer: 5
   m_Name: TimeBonus
   m_TagString: Untagged
@@ -1355,6 +1356,22 @@ RectTransform:
   m_AnchoredPosition: {x: -182, y: -52}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1172820336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172820334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d006906161430a8bafc3421e5b3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBonusLevel: 0
+  Buttontext: {fileID: 846889570}
+  Nowtext: {fileID: 267370663}
+  levelUpCost: 0
 --- !u!114 &1172820337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,8 +1415,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickScoreUp
+      - m_Target: {fileID: 1172820336}
+        m_MethodName: OnClickTimeBonus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1626,7 +1643,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2061,6 +2078,7 @@ GameObject:
   - component: {fileID: 1844799684}
   - component: {fileID: 1844799683}
   - component: {fileID: 1844799682}
+  - component: {fileID: 1844799681}
   m_Layer: 5
   m_Name: ScoreBonus
   m_TagString: Untagged
@@ -2090,6 +2108,22 @@ RectTransform:
   m_AnchoredPosition: {x: 87, y: -52}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1844799681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844799679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d6bd15d760845a4a8f30abc8a599a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreBonusLevel: 0
+  Buttontext: {fileID: 709976870}
+  Nowtext: {fileID: 469923345}
+  levelUpCost: 0
 --- !u!114 &1844799682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,8 +2167,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickScoreUp
+      - m_Target: {fileID: 1844799681}
+        m_MethodName: OnClickScoreBonus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

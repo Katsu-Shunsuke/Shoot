@@ -8,7 +8,7 @@ public class ButtonScript : MonoBehaviour
 {
     public Text scoretext_Mainscene;
 
-    public Text playnumbertext;
+    public static Text playnumbertext;
     public static int playnumber;
 
     public Text highscore;
@@ -35,6 +35,14 @@ public class ButtonScript : MonoBehaviour
         PlayerPrefs.SetInt("Score", 100);
         PlayerPrefs.SetInt("Playnumber", 0);
         PlayerPrefs.SetInt("ScoreUpLevel",1);
+        PlayerPrefs.SetInt("Level", 0);
+        PlayerPrefs.SetInt("LevelScore", 0);
+        PlayerPrefs.SetInt("TimeBonusLevel", 1);
+        PlayerPrefs.SetInt("ScoreBonusLevel", 1);
+        PlayerPrefs.SetInt("OnePlayScore", 0);
+
+        ScoreManageScript.score = 100;
+        Debug.Log(ScoreManageScript.score);
     }
     public void OnClickShop()
     {

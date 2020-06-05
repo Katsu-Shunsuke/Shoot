@@ -17,8 +17,6 @@ public class ShopScript : MonoBehaviour
 
     void Start()
     {
-        scoreUpLevel = 1;
-        PlayerPrefs.SetInt("ScoreUpLevel", scoreUpLevel);
         scoreUpLevel = PlayerPrefs.GetInt("ScoreUpLevel");
     }
 
@@ -32,23 +30,7 @@ public class ShopScript : MonoBehaviour
         scoreUpTextNowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
         scoreUpButtonText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel") + "\n" + (PlayerPrefs.GetInt("ScoreUpLevel")* 100) + "円";
 
-        //ボタンの色
-        if(PlayerPrefs.GetInt("ScoreUpLevel") * 100 > PlayerPrefs.GetInt("Score"))
-        {
-            var ScoreUp_Button = GameObject.Find("ScoreUp");
-            var scoreUp_Button = ScoreUp_Button.GetComponent<Button>();
-            var scoreUp_Button_colors = scoreUp_Button.colors;
-            scoreUp_Button_colors.normalColor = Color.black;
-            Debug.Log("a");
-        }
-        else
-        {
-            var ScoreUp_Button = GameObject.Find("ScoreUp");
-            var scoreUp_Button = ScoreUp_Button.GetComponent<Button>();
-            var scoreUp_Button_colors = scoreUp_Button.colors;
-            scoreUp_Button_colors.normalColor = Color.white;
-            Debug.Log("b");
-        }
+        
     }
 
     public void OnClickScoreUp()
@@ -61,8 +43,6 @@ public class ShopScript : MonoBehaviour
             PlayerPrefs.SetInt("ScoreUpLevel", scoreUpLevel);
         }
     }
-
-    
 
     public void BackMain()
     {

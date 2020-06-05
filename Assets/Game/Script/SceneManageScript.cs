@@ -40,6 +40,8 @@ public class SceneManageScript : MonoBehaviour
 
             nowPlaying = false;
 
+            
+
             timeuptext.text="Time Up!!";
 
             //PlayermovingScriptを参照するため
@@ -58,11 +60,28 @@ public class SceneManageScript : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScene");
         Cursor.lockState = CursorLockMode.None;
+
+        ScoreManageScript.levelbool = true;
+        ScoreManageScript.scorebool = true;
+
+        if (ButtonScript.playnumber == 10)
+        {
+             SceneManager.LoadScene("GameOverScene");
+             Cursor.lockState = CursorLockMode.None;
+
+            PlayerPrefs.SetInt("Score", 100);
+            PlayerPrefs.SetInt("Playnumber", 0);
+            PlayerPrefs.SetInt("ScoreUpLevel", 1);
+            PlayerPrefs.SetInt("TimeBonusLevel", 1);
+            PlayerPrefs.SetInt("ScoreBonusLevel", 1);
+
+            ScoreManageScript.score = 100;
+        }
     }
 
     public static void Combobonus()
     {
-        timer += 3.0f;
+        timer += PlayerPrefs.GetInt("TimeBonusLevel") * 0.1f;
     }
 
     
