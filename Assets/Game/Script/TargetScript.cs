@@ -40,8 +40,19 @@ public class TargetScript : MonoBehaviour
                 //１秒後に消える
                 Invoke("renewchecker", 1.0f);
 
-                //とりあえずScoreManageScriptのスコアを100加算する関数を起動
-                ScoreManageScript.AddScore();
+
+                if (this.gameObject.tag == "100")
+                {
+                    //とりあえずScoreManageScriptのスコアを100加算する関数を起動
+                    ScoreManageScript.AddScore();
+                }
+                if (this.gameObject.tag == "500")
+                {
+                    //とりあえずScoreManageScriptのスコアを500加算する関数を起動
+                    ScoreManageScript.AddScoreFive();
+                }
+
+
             }
         }
     }

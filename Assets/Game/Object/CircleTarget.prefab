@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 5137643055543143017}
   - component: {fileID: 5137643055543143018}
   m_Layer: 0
-  m_Name: target (2)
-  m_TagString: Untagged
+  m_Name: CircleTarget
+  m_TagString: 100
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,4 +233,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionchecker: {fileID: 5137643053601123088}
-  scoreManagement: {fileID: 0}

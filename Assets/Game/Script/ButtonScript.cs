@@ -8,7 +8,7 @@ public class ButtonScript : MonoBehaviour
 {
     public Text scoretext_Mainscene;
 
-    public static Text playnumbertext;
+    public Text playnumbertext;
     public static int playnumber;
 
     public Text highscore;
@@ -16,17 +16,17 @@ public class ButtonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playnumbertext.text = "0回";
+        playnumbertext.text = "PLAYCOUNT"+"0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoretext_Mainscene.text = PlayerPrefs.GetInt("Score") + "円";
+        scoretext_Mainscene.text = "SCORE:"+PlayerPrefs.GetInt("Score");
 
-        playnumbertext.text = PlayerPrefs.GetInt("Playnumber")+"回";
+        playnumbertext.text = "PLAYCOUNT:"+PlayerPrefs.GetInt("Playnumber");
 
-        highscore.text = "HIGH SCORE:"+PlayerPrefs.GetInt("OnePlayScore")+"円";
+        highscore.text = "HIGH SCORE:"+PlayerPrefs.GetInt("OnePlayScore");
 
     }
 

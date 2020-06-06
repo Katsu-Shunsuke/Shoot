@@ -22,7 +22,7 @@ public class ScoreManageScript : MonoBehaviour
     public static float score_f;
 
     
-    public Text addScoreText;
+    public static Text addScoreText;
 
     public int levelscoreever;
     public static bool levelbool = true;
@@ -92,9 +92,14 @@ public class ScoreManageScript : MonoBehaviour
             combotimer = 0f;
             combo = 0;
         }
-        combotext.text = "COMBO:" + combo;
 
-        addScoreText.text = "+" + score_f;
+        if (combo > 3)
+        {
+            combotext.text = "COMBO:" + combo;
+        }
+
+        
+        
     }
 
     //TargetObjectから
@@ -106,7 +111,18 @@ public class ScoreManageScript : MonoBehaviour
         score += (int)score_f;
 
         Combo();
-        
+        AddScoreText();
+    }
+
+    public static void AddScoreFive()
+    {
+
+        //スコアを100追加
+        score_f = 500 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score += (int)score_f;
+
+        Combo();
+
     }
 
     public static void Combo()
@@ -130,5 +146,11 @@ public class ScoreManageScript : MonoBehaviour
         }
     }
 
-   
+    public static void AddScoreText()
+    {
+        addScoreText.text = "+" + score_f;
+        Text text=addScoreText.GetComponent<Text>();
+        text.fontSize = 40;
+        
+    }
 }

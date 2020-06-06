@@ -25,7 +25,7 @@ public class LevelScript : MonoBehaviour
             PlayerPrefs.SetInt("Level", level);
         }
         
-        levelText.text =( "レベル:" + (PlayerPrefs.GetInt("Level")+1));
+        levelText.text =( "LEVEL:" + (PlayerPrefs.GetInt("Level")+1));
     }
 
     
