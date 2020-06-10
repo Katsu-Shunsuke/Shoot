@@ -17,8 +17,12 @@ public class SceneManageScript : MonoBehaviour
     //ゲーム中か
     public bool nowPlaying;
 
+    private GameObject ScoreManagement;
+
     void Start()
     {
+        ScoreManagement = GameObject.Find("ScoreManagement");
+
         //時間制限は
         limittime = 10.0f;
         timer = limittime;
@@ -61,8 +65,9 @@ public class SceneManageScript : MonoBehaviour
         SceneManager.LoadScene("HomeScene");
         Cursor.lockState = CursorLockMode.None;
 
-        ScoreManageScript.levelbool = true;
-        ScoreManageScript.scorebool = true;
+        ScoreManagement.GetComponent<ScoreManageScript>().levelbool = true;
+        ScoreManagement.GetComponent<ScoreManageScript>().scorebool = true;
+        
 
         if (ButtonScript.playnumber == 10)
         {
@@ -75,7 +80,7 @@ public class SceneManageScript : MonoBehaviour
             PlayerPrefs.SetInt("TimeBonusLevel", 1);
             PlayerPrefs.SetInt("ScoreBonusLevel", 1);
 
-            ScoreManageScript.score = 100;
+            ScoreManagement.GetComponent<ScoreManageScript>().score = 100;
         }
     }
 

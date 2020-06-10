@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 839530549271628553}
   - component: {fileID: 884101847444506944}
   m_Layer: 0
-  m_Name: SquareTarget
+  m_Name: SquareTargetA
   m_TagString: 500
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca72aaa6e75d94aa9975dfc39a651a15, type: 2}
+  - {fileID: 2100000, guid: 9ef844ff589a644ba9442e62678918ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

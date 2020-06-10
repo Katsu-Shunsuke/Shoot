@@ -11,23 +11,23 @@ public class ScoreManageScript : MonoBehaviour
     //最終スコアを入れる
     public Text finalscore;
     //スコア
-    public static int score;
+    public int score;
     //最初のスコア
     public int firstscore;
 
-    public static float combotimer;
-    public static int combo=0;
+    public float combotimer;
+    public int combo=0;
     public Text combotext;
 
-    public static float score_f;
+    public float score_f;
 
     
-    public static Text addScoreText;
+    public Text addScoreText;
 
     public int levelscoreever;
-    public static bool levelbool = true;
+    public bool levelbool = true;
 
-    public static bool scorebool = true;
+    public bool scorebool = true;
     public int oneplayscore;
 
     void Start()
@@ -99,11 +99,16 @@ public class ScoreManageScript : MonoBehaviour
         }
 
         
+        if (addScoreText.GetComponent<Text>().fontSize> 20)
+        {
+            addScoreText.GetComponent<Text>().fontSize= addScoreText.GetComponent<Text>().fontSize - (addScoreText.GetComponent<Text>().fontSize - 20) / 5;
+        }
+        
         
     }
 
     //TargetObjectから
-    public static void AddScore()
+    public void AddScore()
     {
         
         //スコアを100追加
@@ -114,7 +119,7 @@ public class ScoreManageScript : MonoBehaviour
         AddScoreText();
     }
 
-    public static void AddScoreFive()
+    public void AddScoreFive()
     {
 
         //スコアを100追加
@@ -125,7 +130,7 @@ public class ScoreManageScript : MonoBehaviour
 
     }
 
-    public static void Combo()
+    public void Combo()
     {
         
         combotimer = 2.0f;
@@ -146,11 +151,10 @@ public class ScoreManageScript : MonoBehaviour
         }
     }
 
-    public static void AddScoreText()
+    public void AddScoreText()
     {
         addScoreText.text = "+" + score_f;
-        Text text=addScoreText.GetComponent<Text>();
-        text.fontSize = 40;
+        addScoreText.GetComponent<Text>().fontSize = 40;
         
     }
 }

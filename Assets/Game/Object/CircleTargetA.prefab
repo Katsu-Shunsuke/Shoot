@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 5137643055543143017}
   - component: {fileID: 5137643055543143018}
   m_Layer: 0
-  m_Name: CircleTarget
+  m_Name: CircleTargetA
   m_TagString: 100
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bca51cf9957cd4cdea57d8be3b74a19f, type: 2}
+  - {fileID: 2100000, guid: 419f7b2171a0740a1ae8102784225d04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -10,6 +10,8 @@ public class TargetScript : MonoBehaviour
     public GameObject collisionchecker;
     MeshRenderer checkermesh;
 
+    private GameObject ScoreManagement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +46,14 @@ public class TargetScript : MonoBehaviour
                 if (this.gameObject.tag == "100")
                 {
                     //とりあえずScoreManageScriptのスコアを100加算する関数を起動
-                    ScoreManageScript.AddScore();
+                    ScoreManagement = GameObject.Find("ScoreManagement");
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScore();
                 }
                 if (this.gameObject.tag == "500")
                 {
                     //とりあえずScoreManageScriptのスコアを500加算する関数を起動
-                    ScoreManageScript.AddScoreFive();
+                    ScoreManagement = GameObject.Find("ScoreManagement");
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreFive();
                 }
 
 

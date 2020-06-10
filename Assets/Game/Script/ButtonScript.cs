@@ -11,11 +11,14 @@ public class ButtonScript : MonoBehaviour
     public Text playnumbertext;
     public static int playnumber;
 
+    private GameObject ScoreManagement;
+
     public Text highscore;
 
     // Start is called before the first frame update
     void Start()
     {
+        ScoreManagement = GameObject.Find("ScoreManagement");
         playnumbertext.text = "PLAYCOUNT"+"0";
     }
 
@@ -41,8 +44,8 @@ public class ButtonScript : MonoBehaviour
         PlayerPrefs.SetInt("ScoreBonusLevel", 1);
         PlayerPrefs.SetInt("OnePlayScore", 0);
 
-        ScoreManageScript.score = 100;
-        Debug.Log(ScoreManageScript.score);
+        ScoreManagement.GetComponent<ScoreManageScript>().score = 100;
+        
     }
     public void OnClickShop()
     {
