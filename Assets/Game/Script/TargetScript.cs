@@ -34,7 +34,7 @@ public class TargetScript : MonoBehaviour
             GameObject SceneManagement = GameObject.Find("SceneManagement");
 
             //ゲーム中だったら
-            if (SceneManagement.GetComponent<SceneManageScript>().nowPlaying == true)
+            if (SceneManagement.GetComponent<SceneManageScript>().nowPlaying == 1)
             {
                 //衝突判定ランプ点灯
                 checkermesh.enabled=true;

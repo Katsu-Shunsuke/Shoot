@@ -20,7 +20,6 @@ public class ScoreManageScript : MonoBehaviour
     public Text combotext;
 
     public float score_f;
-
     
     public Text addScoreText;
 
@@ -34,7 +33,7 @@ public class ScoreManageScript : MonoBehaviour
     {
         //今の金額
         score = PlayerPrefs.GetInt("Score");
-        firstscore = score;
+        firstscore = PlayerPrefs.GetInt("Score");
         combo = 0;
         combotimer = 0f;
 
@@ -45,9 +44,9 @@ public class ScoreManageScript : MonoBehaviour
         //textに入力
         
         scoretext.text = score+ "円";
-
+        Debug.Log(firstscore);
         GameObject SceneManagemenet = GameObject.Find("SceneManagement");
-        if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == false)
+        if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == 0)
         {
             if (scorebool)
             {
@@ -77,7 +76,10 @@ public class ScoreManageScript : MonoBehaviour
                 PlayerPrefs.SetInt("OnePlayScore", oneplayscore);
             }
         }
-
+        if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying != 0)
+        {
+            finalscore.text = "" ;
+        }
         
 
         PlayerPrefs.SetInt("Score", score);
@@ -97,13 +99,16 @@ public class ScoreManageScript : MonoBehaviour
         {
             combotext.text = "COMBO:" + combo;
         }
-
+        else
+        {
+            combotext.text = "";
+        }
         
         if (addScoreText.GetComponent<Text>().fontSize> 20)
         {
             addScoreText.GetComponent<Text>().fontSize= addScoreText.GetComponent<Text>().fontSize - (addScoreText.GetComponent<Text>().fontSize - 20) / 5;
         }
-        
+
         
     }
 
@@ -127,7 +132,7 @@ public class ScoreManageScript : MonoBehaviour
         score += (int)score_f;
 
         Combo();
-
+        AddScoreText();
     }
 
     public void Combo()

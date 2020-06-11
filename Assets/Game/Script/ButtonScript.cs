@@ -11,14 +11,13 @@ public class ButtonScript : MonoBehaviour
     public Text playnumbertext;
     public static int playnumber;
 
-    private GameObject ScoreManagement;
+    public GameObject ScoreManagement;
 
     public Text highscore;
 
     // Start is called before the first frame update
     void Start()
     {
-        ScoreManagement = GameObject.Find("ScoreManagement");
         playnumbertext.text = "PLAYCOUNT"+"0";
     }
 

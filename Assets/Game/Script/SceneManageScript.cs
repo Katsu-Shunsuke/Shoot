@@ -15,7 +15,7 @@ public class SceneManageScript : MonoBehaviour
     //timeupの時
     public Text timeuptext;
     //ゲーム中か
-    public bool nowPlaying;
+    public int nowPlaying;
 
     private GameObject ScoreManagement;
 
@@ -24,10 +24,10 @@ public class SceneManageScript : MonoBehaviour
         ScoreManagement = GameObject.Find("ScoreManagement");
 
         //時間制限は
-        limittime = 10.0f;
+        limittime = 15.0f;
         timer = limittime;
 
-        nowPlaying = true;
+        nowPlaying = 0;
     }
 
     void Update()
@@ -35,14 +35,38 @@ public class SceneManageScript : MonoBehaviour
         //時間を引いていく
         timer -= Time.deltaTime;
         timetext.text = "TIme:"+timer.ToString("f2");
-
+        if (timer > 14.0f )
+        {
+            timetext.text = "";
+            nowPlaying = 2;
+        }
+        if (timer > 13.0f & timer<=14.0f)
+        {
+            timetext.text = "3";
+        }
+        if (timer > 12.0f & timer <= 13.0f)
+        {
+            timetext.text = "2";
+        }
+        if (timer > 11.0f & timer <= 12.0f)
+        {
+            timetext.text = "1";
+        }
+        if (timer > 10.0f & timer <= 11.0f)
+        {
+            timetext.text = "START!";
+        }
+        if (timer > 0.0f & timer <= 10.0f)
+        {
+            nowPlaying = 1;
+        }
         //時間がなくなったら止まる
         if (timer <= 0.00f)
         {
             timer = 0.00f;
             timetext.text = "TIme:" + timer.ToString("f2");
 
-            nowPlaying = false;
+            nowPlaying = 0;
 
             
 
