@@ -14,7 +14,12 @@ public class TimeBonusScript : MonoBehaviour
     public Text NowLevelText;
 
     public Text ButtonText;
-    
+
+    public Text CostText;
+
+    public Image Image;
+    public Sprite sprite;
+
     public int levelUpCost;
 
     // Start is called before the first frame update
@@ -33,8 +38,9 @@ public class TimeBonusScript : MonoBehaviour
         {
             Nowtext.text = "TimeBonus";
             NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("TimeBonusLevel");
-            Buttontext.text =PlayerPrefs.GetInt("TimeBonusLevel") * 100 + "p";
-            Debug.Log(1);
+            CostText.text =PlayerPrefs.GetInt("TimeBonusLevel") * 100 + "円";
+            Image.sprite = sprite;
+            Nowtext.text = "5コンボで" + "\n" + PlayerPrefs.GetInt("TimeBonusLevel") * 0.1f + "秒追加";
         }
         else
         {

@@ -68,8 +68,6 @@ public class SceneManageScript : MonoBehaviour
 
             nowPlaying = 0;
 
-            
-
             timeuptext.text="Time Up!!";
 
             //PlayermovingScriptを参照するため
@@ -78,20 +76,14 @@ public class SceneManageScript : MonoBehaviour
             //Playerを止める
             mainCamera.GetComponent<PlayerMovingScript>().forwardSpeed=new Vector3(0,0,0);
 
-            
-
-            //sceneを５秒後にscoresceneに移動する
-            Invoke("Exitgame",5.0f);
+            //sceneを3秒後にscoresceneに移動する
+            Invoke("Exitgame", 3.0f);
         }
     }
     void Exitgame()
     {
-        SceneManager.LoadScene("HomeScene");
+        SceneManager.LoadScene("ResultScene");
         Cursor.lockState = CursorLockMode.None;
-
-        ScoreManagement.GetComponent<ScoreManageScript>().levelbool = true;
-        ScoreManagement.GetComponent<ScoreManageScript>().scorebool = true;
-        
 
         if (ButtonScript.playnumber == 10)
         {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7387188796196991459}
   m_Layer: 0
   m_Name: SquareTargetA_L
-  m_TagString: 500
+  m_TagString: 1000
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

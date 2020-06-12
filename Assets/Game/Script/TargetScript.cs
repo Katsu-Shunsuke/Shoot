@@ -47,15 +47,32 @@ public class TargetScript : MonoBehaviour
                 {
                     //とりあえずScoreManageScriptのスコアを100加算する関数を起動
                     ScoreManagement = GameObject.Find("ScoreManagement");
-                    ScoreManagement.GetComponent<ScoreManageScript>().AddScore();
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreC();
                 }
                 if (this.gameObject.tag == "500")
                 {
                     //とりあえずScoreManageScriptのスコアを500加算する関数を起動
                     ScoreManagement = GameObject.Find("ScoreManagement");
-                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreFive();
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreB();
                 }
-
+                if (this.gameObject.tag == "1000")
+                {
+                    //とりあえずScoreManageScriptのスコアを100加算する関数を起動
+                    ScoreManagement = GameObject.Find("ScoreManagement");
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreA();
+                }
+                if (this.gameObject.tag == "2000")
+                {
+                    //とりあえずScoreManageScriptのスコアを100加算する関数を起動
+                    ScoreManagement = GameObject.Find("ScoreManagement");
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreS();
+                }
+                if (this.gameObject.tag == "5000")
+                {
+                    //とりあえずScoreManageScriptのスコアを100加算する関数を起動
+                    ScoreManagement = GameObject.Find("ScoreManagement");
+                    ScoreManagement.GetComponent<ScoreManageScript>().AddScoreSS();
+                }
 
             }
         }

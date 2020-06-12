@@ -8,8 +8,7 @@ public class ScoreManageScript : MonoBehaviour
 {
     //スコアを入れる
     public Text scoretext;
-    //最終スコアを入れる
-    public Text finalscore;
+    
     //スコア
     public int score;
     //最初のスコア
@@ -23,70 +22,28 @@ public class ScoreManageScript : MonoBehaviour
     
     public Text addScoreText;
 
-    public int levelscoreever;
-    public bool levelbool = true;
-
-    public bool scorebool = true;
-    public int oneplayscore;
+    public int once = 0;
 
     void Start()
     {
         //今の金額
         score = PlayerPrefs.GetInt("Score");
-        firstscore = PlayerPrefs.GetInt("Score");
+        PlayerPrefs.SetInt("FirstScore", PlayerPrefs.GetInt("Score"));
         combo = 0;
         combotimer = 0f;
 
+        addScoreText.fontSize = 30;
     }
 
     void Update()
     {
+        
         //textに入力
-        
+
         scoretext.text = score+ "円";
-        Debug.Log(firstscore);
-        GameObject SceneManagemenet = GameObject.Find("SceneManagement");
-        if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying == 0)
-        {
-            if (scorebool)
-            {
-                //ボーナスをたす
-                float finalscore_f = (score - firstscore) * ((PlayerPrefs.GetInt("Level") + 1) * 0.1f + 1) * (PlayerPrefs.GetInt("ScoreBonusLevel") * 0.1f + 1);
-                //ワンプレイスコア
-                oneplayscore = (int)finalscore_f;
-                finalscore.text = "SCORE:" + oneplayscore;
-
-                score = oneplayscore + firstscore;
-
-                scorebool = false;
-            }
-
-            if (levelbool)
-            {
-                levelscoreever = PlayerPrefs.GetInt("LevelScore") + oneplayscore;
-                PlayerPrefs.SetInt("LevelScore", levelscoreever);
-                levelbool = false;
-
-            }
-
-
-            //highscoreを保存
-            if (oneplayscore > PlayerPrefs.GetInt("OnePlayScore"))
-            {
-                PlayerPrefs.SetInt("OnePlayScore", oneplayscore);
-            }
-        }
-        if (SceneManagemenet.GetComponent<SceneManageScript>().nowPlaying != 0)
-        {
-            finalscore.text = "" ;
-        }
         
-
         PlayerPrefs.SetInt("Score", score);
 
-       
-
-        
         combotimer -= Time.deltaTime;
       
         if (combotimer <= 0)
@@ -104,16 +61,10 @@ public class ScoreManageScript : MonoBehaviour
             combotext.text = "";
         }
         
-        if (addScoreText.GetComponent<Text>().fontSize> 20)
-        {
-            addScoreText.GetComponent<Text>().fontSize= addScoreText.GetComponent<Text>().fontSize - (addScoreText.GetComponent<Text>().fontSize - 20) / 5;
-        }
-
-        
     }
 
     //TargetObjectから
-    public void AddScore()
+    public void AddScoreC()
     {
         
         //スコアを100追加
@@ -124,11 +75,44 @@ public class ScoreManageScript : MonoBehaviour
         AddScoreText();
     }
 
-    public void AddScoreFive()
+    public void AddScoreB()
     {
 
-        //スコアを100追加
+        //スコアを500追加
         score_f = 500 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score += (int)score_f;
+
+        Combo();
+        AddScoreText();
+    }
+
+    public void AddScoreA()
+    {
+
+        //スコアを1000追加
+        score_f = 1000 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score += (int)score_f;
+
+        Combo();
+        AddScoreText();
+    }
+
+    public void AddScoreS()
+    {
+
+        //スコアを2000追加
+        score_f = 2000 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score += (int)score_f;
+
+        Combo();
+        AddScoreText();
+    }
+
+    public void AddScoreSS()
+    {
+
+        //スコアを5000追加
+        score_f = 5000 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();
@@ -159,7 +143,24 @@ public class ScoreManageScript : MonoBehaviour
     public void AddScoreText()
     {
         addScoreText.text = "+" + score_f;
-        addScoreText.GetComponent<Text>().fontSize = 40;
+        addScoreText.fontSize = 70;
+        once++;
+
+        Invoke("SmallFont", 3.0f);
         
     }
+    void SmallFont()
+    {
+        
+        if (once == 1)
+        {
+            addScoreText.fontSize = 30;
+        }
+        if (once != 1)
+        {
+            once--;
+        }
+    }
+
+    
 }

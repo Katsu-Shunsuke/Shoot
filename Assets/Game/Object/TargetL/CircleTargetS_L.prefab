@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 7820798335455966212}
   m_Layer: 0
   m_Name: CircleTargetS_L
-  m_TagString: 100
+  m_TagString: 2000
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

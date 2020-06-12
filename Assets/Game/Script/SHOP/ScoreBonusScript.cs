@@ -16,6 +16,11 @@ public class ScoreBonusScript : MonoBehaviour
 
     public Text ButtonText;
 
+    public Text CostText;
+
+    public Image Image;
+    public Sprite sprite;
+
     public int levelUpCost;
 
     // Start is called before the first frame update
@@ -34,8 +39,9 @@ public class ScoreBonusScript : MonoBehaviour
         {
             Nowtext.text = "ScoreBonus";
             NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreBonusLevel");
-            Buttontext.text =PlayerPrefs.GetInt("ScoreBonusLevel") * 100 + "円";
-            Debug.Log(2);
+            CostText.text =PlayerPrefs.GetInt("ScoreBonusLevel") * 100 + "円";
+            Image.sprite = sprite;
+            Nowtext.text = "最終スコアに" + "\n" + PlayerPrefs.GetInt("ScoreBonusLevel") * 0.1f + "%加算";
         }
         else
         {
