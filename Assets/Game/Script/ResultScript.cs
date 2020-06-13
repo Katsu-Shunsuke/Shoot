@@ -60,7 +60,7 @@ public class ResultScript : MonoBehaviour
         if (deltascore >= score)
         {
             score_text.text = "" + score;
-
+            deltascore = score;
             //scorebonus
             if (deltascorebonus < scorebonus)
             {
@@ -70,7 +70,7 @@ public class ResultScript : MonoBehaviour
             if (deltascorebonus >= scorebonus)
             {
                 scorebonus_text .text = "" + (int)scorebonus;
-
+                deltascorebonus = (int)scorebonus;
                 //levelbonus
                 if (deltalevelbonus < levelbonus)
                 {
@@ -80,7 +80,7 @@ public class ResultScript : MonoBehaviour
                 if (deltalevelbonus >= levelbonus)
                 {
                     levelbonus_text.text = "" + (int)levelbonus;
-
+                    deltalevelbonus = (int)levelbonus;
                     //total
                     if (deltatotal < total)
                     {
@@ -90,7 +90,7 @@ public class ResultScript : MonoBehaviour
                     if (deltatotal >= total)
                     {
                         total_text.text = "" + total;
-
+                        deltatotal = total;
                         Back.SetActive(true);
                     }
                 }

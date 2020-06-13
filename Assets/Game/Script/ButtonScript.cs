@@ -13,22 +13,22 @@ public class ButtonScript : MonoBehaviour
 
     public GameObject ScoreManagement;
 
-    public Text highscore;
+    //public Text highscore;
 
     // Start is called before the first frame update
     void Start()
     {
-        playnumbertext.text = "PLAYCOUNT"+"0";
+        //playnumbertext.text = "PLAYCOUNT"+"0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoretext_Mainscene.text = "SCORE:"+PlayerPrefs.GetInt("Score");
+        scoretext_Mainscene.text =PlayerPrefs.GetInt("Score")+"円";
 
         playnumbertext.text = "PLAYCOUNT:"+PlayerPrefs.GetInt("Playnumber");
 
-        highscore.text = "HIGH SCORE:"+PlayerPrefs.GetInt("OnePlayScore");
+        //highscore.text = "HIGH SCORE:"+PlayerPrefs.GetInt("OnePlayScore");
 
     }
 
@@ -37,11 +37,11 @@ public class ButtonScript : MonoBehaviour
         PlayerPrefs.SetInt("Score", 100);
         PlayerPrefs.SetInt("Playnumber", 0);
         PlayerPrefs.SetInt("ScoreUpLevel",1);
-        PlayerPrefs.SetInt("Level", 0);
-        PlayerPrefs.SetInt("LevelScore", 0);
+        //PlayerPrefs.SetInt("Level", 0);
+        //layerPrefs.SetInt("LevelScore", 0);
         PlayerPrefs.SetInt("TimeBonusLevel", 1);
         PlayerPrefs.SetInt("ScoreBonusLevel", 1);
-        PlayerPrefs.SetInt("OnePlayScore", 0);
+        
 
         ScoreManagement.GetComponent<ScoreManageScript>().score = 100;
         

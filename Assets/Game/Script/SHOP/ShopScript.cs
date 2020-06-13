@@ -24,15 +24,15 @@ public class ShopScript : MonoBehaviour
     public void Update()
     {
         //所持金を表示
-        scoreText.text = PlayerPrefs.GetInt("Score") + "円";
+        //scoreText.text = PlayerPrefs.GetInt("Score") + "円";
 
         //Text系
-        scoreUpTextNowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
-        scoreUpButtonText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel") + "\n" + (PlayerPrefs.GetInt("ScoreUpLevel")* 100) + "円";
+        //scoreUpTextNowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        //scoreUpButtonText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel") + "\n" + (PlayerPrefs.GetInt("ScoreUpLevel")* 100) + "円";
 
         
     }
-
+    /*
     public void OnClickScoreUp()
     {
         scoreUpCost = PlayerPrefs.GetInt("ScoreUpLevel") * 100;
@@ -43,6 +43,7 @@ public class ShopScript : MonoBehaviour
             PlayerPrefs.SetInt("ScoreUpLevel", scoreUpLevel);
         }
     }
+    */
 
     public void BackMain()
     {
