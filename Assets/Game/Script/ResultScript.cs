@@ -24,6 +24,11 @@ public class ResultScript : MonoBehaviour
 
     public GameObject Back;
 
+    //ResultRevelScript用
+    public GameObject LevelText;
+
+    public int index = 0;
+
     void Start()
     {
         
@@ -47,51 +52,61 @@ public class ResultScript : MonoBehaviour
         playnumber.text = "" + PlayerPrefs.GetInt("Playnumber");
 
         Back.SetActive(false);
+
+        index = 1;
     }
 
     void Update()
     {
-        //oneplay
-        if(deltascore < score)
-        {
-            deltascore += score/100;
-            score_text.text = "" + deltascore;
-        }
-        if (deltascore >= score)
-        {
-            score_text.text = "" + score;
-            deltascore = score;
-            //scorebonus
-            if (deltascorebonus < scorebonus)
+        if (index == 1)
+        { 
+            //oneplay
+            if(deltascore < score)
             {
-                deltascorebonus += (int)(scorebonus / 10);
-                score_text.text = "" + deltascorebonus;
+                deltascore += score/100;
+                score_text.text = "" + deltascore;
             }
-            if (deltascorebonus >= scorebonus)
+            if (deltascore >= score)
             {
-                scorebonus_text .text = "" + (int)scorebonus;
-                deltascorebonus = (int)scorebonus;
-                //levelbonus
-                if (deltalevelbonus < levelbonus)
+                score_text.text = "" + score;
+                deltascore = score;
+                //scorebonus
+                if (deltascorebonus < scorebonus)
                 {
-                    deltalevelbonus += (int)(levelbonus / 10);
-                    levelbonus_text.text = "" + deltalevelbonus;
+                    deltascorebonus += (int)(scorebonus / 10);
+                    score_text.text = "" + deltascorebonus;
                 }
-                if (deltalevelbonus >= levelbonus)
+                if (deltascorebonus >= scorebonus)
                 {
-                    levelbonus_text.text = "" + (int)levelbonus;
-                    deltalevelbonus = (int)levelbonus;
-                    //total
-                    if (deltatotal < total)
+                    scorebonus_text.text = "" + (int)scorebonus;
+                    deltascorebonus = (int)scorebonus;
+                    //levelbonus
+                    if (deltalevelbonus < levelbonus)
                     {
-                        deltatotal += total / 100;
-                        total_text.text = "" + deltatotal;
+                        deltalevelbonus += (int)(levelbonus / 10);
+                        levelbonus_text.text = "" + deltalevelbonus;
                     }
-                    if (deltatotal >= total)
+                    if (deltalevelbonus >= levelbonus)
                     {
-                        total_text.text = "" + total;
-                        deltatotal = total;
-                        Back.SetActive(true);
+                        levelbonus_text.text = "" + (int)levelbonus;
+                        deltalevelbonus = (int)levelbonus;
+                        //total
+                        if (deltatotal < total)
+                        {
+                            deltatotal += total / 100;
+                            total_text.text = "" + deltatotal;
+                        }
+                        if (deltatotal >= total)
+                        {
+                            total_text.text = "" + total;
+                            deltatotal = total;
+
+                            Back.SetActive(true);
+
+                            LevelText.GetComponent<ResultLevelScript>().LevelUpStart();
+
+                            index = 0;
+                        }
                     }
                 }
             }

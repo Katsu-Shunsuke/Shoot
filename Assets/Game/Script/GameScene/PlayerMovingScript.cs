@@ -15,11 +15,11 @@ public class PlayerMovingScript : MonoBehaviour
     //前に進むスピード
     public Vector3 forwardSpeed;
 
-    public static int ballspeed;
+    public int ballspeed;
 
     void Start()
     {
-        PlayerPrefs.SetInt("Ballspeed",20);
+        
         
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -60,7 +60,7 @@ public class PlayerMovingScript : MonoBehaviour
             Throwingball();
         }
 
-        ballspeed = PlayerPrefs.GetInt("Ballspeed");
+        ballspeed = (PlayerPrefs.GetInt("BallSpeedLevel") * 5 + 15);
     }
 
     //マウスで視点を回転させる

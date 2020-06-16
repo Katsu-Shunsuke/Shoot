@@ -37,11 +37,11 @@ public class ButtonScript : MonoBehaviour
         PlayerPrefs.SetInt("Score", 100);
         PlayerPrefs.SetInt("Playnumber", 0);
         PlayerPrefs.SetInt("ScoreUpLevel",1);
-        //PlayerPrefs.SetInt("Level", 0);
-        //layerPrefs.SetInt("LevelScore", 0);
+        PlayerPrefs.SetInt("Level", 0);
+        PlayerPrefs.SetInt("LevelScore", 0);
         PlayerPrefs.SetInt("TimeBonusLevel", 1);
         PlayerPrefs.SetInt("ScoreBonusLevel", 1);
-        
+        PlayerPrefs.SetInt("BallSpeedLevel", 1);
 
         ScoreManagement.GetComponent<ScoreManageScript>().score = 100;
         

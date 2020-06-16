@@ -9,8 +9,8 @@ public class ScoreUpScript : MonoBehaviour
     public int scoreUpLevel;
     //説明文
     public Text Nowtext;
-    //レベルアップボタンのテキスト
-    public Text scoreUpButtonText;
+    
+    
 
     public Text NowLevelText;
 
@@ -40,7 +40,7 @@ public class ScoreUpScript : MonoBehaviour
 
         if (index == 0)
         {
-            Nowtext.text = "ScoreUp";
+            
             NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel");
             CostText.text =(PlayerPrefs.GetInt("ScoreUpLevel") * 100) + "円";
             Image.sprite = sprite;

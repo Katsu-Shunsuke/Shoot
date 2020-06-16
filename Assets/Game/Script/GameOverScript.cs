@@ -68,5 +68,6 @@ public class GameOverScript : MonoBehaviour
         //layerPrefs.SetInt("LevelScore", 0);
         PlayerPrefs.SetInt("TimeBonusLevel", 1);
         PlayerPrefs.SetInt("ScoreBonusLevel", 1);
+        PlayerPrefs.SetInt("BallSpeedLevel", 1);
     }
 }

@@ -9,7 +9,7 @@ public class TimeBonusScript : MonoBehaviour
 
     public Text Nowtext;
 
-    public Text Buttontext;
+    
 
     public Text NowLevelText;
 
@@ -36,7 +36,7 @@ public class TimeBonusScript : MonoBehaviour
 
         if (ScoreUpScript.index == 1)
         {
-            Nowtext.text = "TimeBonus";
+            
             NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("TimeBonusLevel");
             CostText.text =PlayerPrefs.GetInt("TimeBonusLevel") * 100 + "円";
             Image.sprite = sprite;
