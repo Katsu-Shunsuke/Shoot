@@ -69,7 +69,7 @@ public class ResultScript : MonoBehaviour
             //oneplay
             if(deltascore < score)
             {
-                deltascore += score/200;
+                deltascore += score/80;
                 score_text.text = "" + deltascore;
             }
             if (deltascore >= score)
@@ -99,7 +99,7 @@ public class ResultScript : MonoBehaviour
                         //total
                         if (deltatotal < total)
                         {
-                            deltatotal += total / 500;
+                            deltatotal += total / 50;
                             total_text.text = "" + deltatotal;
                         }
                         if (deltatotal >= total)
