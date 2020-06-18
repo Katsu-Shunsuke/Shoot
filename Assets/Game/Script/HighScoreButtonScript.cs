@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class HighScoreButtonScript : MonoBehaviour
 {
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,5 +23,6 @@ public class HighScoreButtonScript : MonoBehaviour
     public void OnCLick()
     {
         SceneManager.LoadScene("HighScoreScene");
+        audiosource.PlayOneShot(audio1);
     }
 }

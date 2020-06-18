@@ -17,15 +17,22 @@ public class GameOverScript : MonoBehaviour
 
     public GameObject Back;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+    public AudioClip audio2;
+
     // Start is called before the first frame update
     void Start()
     {
         score = PlayerPrefs.GetInt("Score");
         
         Back.SetActive(false);
-        
+
+        audiosource = GetComponent<AudioSource>();
 
         a = true;
+
+        audiosource.PlayOneShot(audio2);
     }
 
     // Update is called once per frame
@@ -69,5 +76,7 @@ public class GameOverScript : MonoBehaviour
         PlayerPrefs.SetInt("TimeBonusLevel", 1);
         PlayerPrefs.SetInt("ScoreBonusLevel", 1);
         PlayerPrefs.SetInt("BallSpeedLevel", 1);
+
+        audiosource.PlayOneShot(audio2);
     }
 }

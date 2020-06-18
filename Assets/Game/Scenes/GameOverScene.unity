@@ -336,6 +336,8 @@ MonoBehaviour:
   deltascore: 0
   a: 0
   Back: {fileID: 323216373}
+  audio1: {fileID: 8300000, guid: 5e0a005584c564b76bfd14df2ea9816e, type: 3}
+  audio2: {fileID: 8300000, guid: e60d6ca780665472da6154663d08951f, type: 3}
 --- !u!114 &323216376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +854,8 @@ MonoBehaviour:
   deltascore: 0
   a: 0
   Back: {fileID: 323216373}
+  audio1: {fileID: 0}
+  audio2: {fileID: 0}
 --- !u!1 &1572971303
 GameObject:
   m_ObjectHideFlags: 0

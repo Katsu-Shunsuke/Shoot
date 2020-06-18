@@ -19,6 +19,9 @@ public class SceneManageScript : MonoBehaviour
 
     private GameObject ScoreManagement;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     void Start()
     {
         ScoreManagement = GameObject.Find("ScoreManagement");
@@ -28,6 +31,8 @@ public class SceneManageScript : MonoBehaviour
         timer = limittime;
 
         nowPlaying = 0;
+
+        audiosource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -65,6 +70,8 @@ public class SceneManageScript : MonoBehaviour
         {
             timer = 0.00f;
             timetext.text = "TIme:" + timer.ToString("f2");
+
+            audiosource.PlayOneShot(audio1);
 
             nowPlaying = 0;
 

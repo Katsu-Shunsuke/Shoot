@@ -25,10 +25,15 @@ public class ScoreUpScript : MonoBehaviour
 
     public static int index=0;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+    public AudioClip audio2;
+
     // Start is called before the first frame update
     void Start()
     {
         scoreUpLevel = PlayerPrefs.GetInt("ScoreUpLevel");
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,11 +61,12 @@ public class ScoreUpScript : MonoBehaviour
     public void OnClickFirst()
     {
         index = 0;
-        
+        audiosource.PlayOneShot(audio1);
     }
 
     public void OnClickScoreUp()
     {
+        
         if (index == 0)
         {
             scoreUpCost = PlayerPrefs.GetInt("ScoreUpLevel") * 100;
@@ -69,6 +75,7 @@ public class ScoreUpScript : MonoBehaviour
                 scoreUpLevel++;
                 PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - scoreUpCost);
                 PlayerPrefs.SetInt("ScoreUpLevel", scoreUpLevel);
+                audiosource.PlayOneShot(audio2);
             }
         }
     }

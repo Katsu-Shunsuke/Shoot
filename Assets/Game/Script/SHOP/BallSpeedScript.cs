@@ -21,10 +21,15 @@ public class BallSpeedScript : MonoBehaviour
 
     public int levelUpCost;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+    public AudioClip audio2;
+
     // Start is called before the first frame update
     void Start()
     {
         BallSpeedLevel = PlayerPrefs.GetInt("BallSpeedLevel");
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,7 +55,7 @@ public class BallSpeedScript : MonoBehaviour
     public void OnClickForth()
     {
         ScoreUpScript.index = 3;
-
+        audiosource.PlayOneShot(audio1);
     }
 
     public void OnClickBallSpeed()
@@ -63,6 +68,7 @@ public class BallSpeedScript : MonoBehaviour
                 int t = PlayerPrefs.GetInt("BallSpeedLevel") + 1;
                 PlayerPrefs.SetInt("BallSpeedLevel", t);
                 PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - levelUpCost);
+                audiosource.PlayOneShot(audio2);
             }
         }
     }

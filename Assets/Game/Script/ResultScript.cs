@@ -29,6 +29,9 @@ public class ResultScript : MonoBehaviour
 
     public int index = 0;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     void Start()
     {
         
@@ -54,6 +57,9 @@ public class ResultScript : MonoBehaviour
         Back.SetActive(false);
 
         index = 1;
+
+        audiosource = GetComponent<AudioSource>();
+        audiosource.PlayOneShot(audio1);
     }
 
     void Update()
@@ -63,7 +69,7 @@ public class ResultScript : MonoBehaviour
             //oneplay
             if(deltascore < score)
             {
-                deltascore += score/100;
+                deltascore += score/200;
                 score_text.text = "" + deltascore;
             }
             if (deltascore >= score)
@@ -93,7 +99,7 @@ public class ResultScript : MonoBehaviour
                         //total
                         if (deltatotal < total)
                         {
-                            deltatotal += total / 100;
+                            deltatotal += total / 500;
                             total_text.text = "" + deltatotal;
                         }
                         if (deltatotal >= total)

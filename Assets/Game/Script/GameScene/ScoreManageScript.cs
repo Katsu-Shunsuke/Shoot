@@ -24,6 +24,9 @@ public class ScoreManageScript : MonoBehaviour
 
     public int once = 0;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     void Start()
     {
         //今の金額
@@ -33,6 +36,8 @@ public class ScoreManageScript : MonoBehaviour
         combotimer = 0f;
 
         addScoreText.fontSize = 30;
+
+        audiosource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -73,6 +78,8 @@ public class ScoreManageScript : MonoBehaviour
 
         Combo();
         AddScoreText();
+
+        audiosource.PlayOneShot(audio1);
     }
 
     public void AddScoreB()
@@ -84,6 +91,8 @@ public class ScoreManageScript : MonoBehaviour
 
         Combo();
         AddScoreText();
+
+        audiosource.PlayOneShot(audio1);
     }
 
     public void AddScoreA()
@@ -95,6 +104,8 @@ public class ScoreManageScript : MonoBehaviour
 
         Combo();
         AddScoreText();
+
+        audiosource.PlayOneShot(audio1);
     }
 
     public void AddScoreS()
@@ -106,6 +117,8 @@ public class ScoreManageScript : MonoBehaviour
 
         Combo();
         AddScoreText();
+
+        audiosource.PlayOneShot(audio1);
     }
 
     public void AddScoreSS()
@@ -117,6 +130,8 @@ public class ScoreManageScript : MonoBehaviour
 
         Combo();
         AddScoreText();
+
+        audiosource.PlayOneShot(audio1);
     }
 
     public void Combo()

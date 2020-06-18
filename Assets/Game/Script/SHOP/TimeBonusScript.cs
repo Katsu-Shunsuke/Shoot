@@ -22,10 +22,15 @@ public class TimeBonusScript : MonoBehaviour
 
     public int levelUpCost;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+    public AudioClip audio2;
+
     // Start is called before the first frame update
     void Start()
     {
         timeBonusLevel = PlayerPrefs.GetInt("TimeBonusLevel");
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,7 +57,7 @@ public class TimeBonusScript : MonoBehaviour
     public void OnClickSecond()
     {
         ScoreUpScript.index = 1;
-        
+        audiosource.PlayOneShot(audio1);
     }
 
 
@@ -66,6 +71,7 @@ public class TimeBonusScript : MonoBehaviour
                 int t = PlayerPrefs.GetInt("TimeBonusLevel") + 1;
                 PlayerPrefs.SetInt("TimeBonusLevel", t);
                 PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - levelUpCost);
+                audiosource.PlayOneShot(audio2);
             }
         }
     }

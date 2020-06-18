@@ -12,6 +12,8 @@ public class TargetScript : MonoBehaviour
 
     private GameObject ScoreManagement;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {

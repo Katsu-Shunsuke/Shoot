@@ -15,9 +15,13 @@ public class ShopScript : MonoBehaviour
     public Text scoreUpTextNowText;
     public Text scoreUpButtonText;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     void Start()
     {
         scoreUpLevel = PlayerPrefs.GetInt("ScoreUpLevel");
+        audiosource = GetComponent<AudioSource>();
     }
 
     
@@ -48,6 +52,7 @@ public class ShopScript : MonoBehaviour
     public void BackMain()
     {
         SceneManager.LoadScene("HomeScene");
+        audiosource.PlayOneShot(audio1);
     }
 
     public void OnClickGameStart()
@@ -55,6 +60,6 @@ public class ShopScript : MonoBehaviour
         SceneManager.LoadScene("GameScene");
         int playnumber = PlayerPrefs.GetInt("Playnumber") + 1;
         PlayerPrefs.SetInt("Playnumber", playnumber);
-
+        audiosource.PlayOneShot(audio1);
     }
 }

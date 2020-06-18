@@ -8,10 +8,13 @@ public class HighScoreScript : MonoBehaviour
 {
     public Text highscore_text;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,5 +34,6 @@ public class HighScoreScript : MonoBehaviour
     public void ONClick()
     {
         SceneManager.LoadScene("HomeScene");
+        audiosource.PlayOneShot(audio1);
     }
 }

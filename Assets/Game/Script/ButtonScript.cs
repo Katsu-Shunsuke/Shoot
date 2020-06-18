@@ -13,12 +13,16 @@ public class ButtonScript : MonoBehaviour
 
     public GameObject ScoreManagement;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     //public Text highscore;
 
     // Start is called before the first frame update
     void Start()
     {
         //playnumbertext.text = "PLAYCOUNT"+"0";
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +53,7 @@ public class ButtonScript : MonoBehaviour
     public void OnClickShop()
     {
         SceneManager.LoadScene("ShopScene");
+        audiosource.PlayOneShot(audio1);
     }
 
     void Playcount()

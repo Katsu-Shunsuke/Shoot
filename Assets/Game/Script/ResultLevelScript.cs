@@ -16,6 +16,9 @@ public class ResultLevelScript : MonoBehaviour
     
     public Slider LevelSlider;
 
+    AudioSource audiosource;
+    public AudioClip audio1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,8 @@ public class ResultLevelScript : MonoBehaviour
         
         LevelSlider.maxValue = maxvalue - minvalue;
         LevelSlider.value = levelscore - minvalue;
+
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,7 +64,7 @@ public class ResultLevelScript : MonoBehaviour
                 LevelSlider.value = 0;
                 Level++;
                 LevelIndex();
-                    
+                audiosource.PlayOneShot(audio1);
             }
         }
 
