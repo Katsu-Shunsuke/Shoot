@@ -2211,7 +2211,7 @@ MonoBehaviour:
   Nowtext: {fileID: 1670015193}
   NowLevelText: {fileID: 639272722}
   ButtonText: {fileID: 1749279793}
-  CostText: {fileID: 2069307006}
+  CostText: {fileID: 850707935}
   Image: {fileID: 785027843}
   sprite: {fileID: 21300000, guid: 2cc9146e9738245d0ae590f4347f4f85, type: 3}
   levelUpCost: 0
@@ -3578,7 +3578,7 @@ MonoBehaviour:
   Nowtext: {fileID: 1670015193}
   NowLevelText: {fileID: 639272722}
   ButtonText: {fileID: 1749279793}
-  CostText: {fileID: 2069307006}
+  CostText: {fileID: 850707935}
   Image: {fileID: 785027843}
   sprite: {fileID: 21300000, guid: 2cc9146e9738245d0ae590f4347f4f85, type: 3}
   levelUpCost: 0

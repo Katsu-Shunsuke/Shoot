@@ -32,17 +32,16 @@ public class GameOverScript : MonoBehaviour
 
         a = true;
 
-        audiosource.PlayOneShot(audio2);
+        audiosource.PlayOneShot(audio1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(deltascore);
         
         if (deltascore < score)
         {
-            deltascore += score / 100;
+            deltascore += score / 11;
             score_text.text = "" + deltascore;
         }
         if (deltascore >= score)
@@ -67,6 +66,7 @@ public class GameOverScript : MonoBehaviour
 
     public void OnClickNewGame()
     {
+        PlayerPrefs.SetInt("10thScore",score);
         SceneManager.LoadScene("HomeScene");
         PlayerPrefs.SetInt("Score", 100);
         PlayerPrefs.SetInt("Playnumber", 0);

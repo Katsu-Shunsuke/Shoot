@@ -41,7 +41,7 @@ public class BallSpeedScript : MonoBehaviour
         {
             
             NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("BallSpeedLevel");
-            CostText.text = PlayerPrefs.GetInt("BallSpeedLevel") * 1000 + "円";
+            CostText.text = PlayerPrefs.GetInt("BallSpeedLevel") * 10000 + "円";
             Image.sprite = sprite;
             Nowtext.text = "ボール発射スピードが" + "\n" + (PlayerPrefs.GetInt("BallSpeedLevel") * 5+15) ;
         }
@@ -62,7 +62,7 @@ public class BallSpeedScript : MonoBehaviour
     {
         if (ScoreUpScript.index == 3)
         {
-            levelUpCost = PlayerPrefs.GetInt("BallSpeedLevel") * 1000;
+            levelUpCost = PlayerPrefs.GetInt("BallSpeedLevel") * 10000;
             if (levelUpCost < PlayerPrefs.GetInt("Score"))
             {
                 int t = PlayerPrefs.GetInt("BallSpeedLevel") + 1;

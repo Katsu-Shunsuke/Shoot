@@ -99,7 +99,7 @@ public class ResultScript : MonoBehaviour
                         //total
                         if (deltatotal < total)
                         {
-                            deltatotal += total / 50;
+                            deltatotal += total / 80;
                             total_text.text = "" + deltatotal;
                         }
                         if (deltatotal >= total)

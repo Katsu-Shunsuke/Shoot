@@ -92,18 +92,11 @@ public class SceneManageScript : MonoBehaviour
         SceneManager.LoadScene("ResultScene");
         Cursor.lockState = CursorLockMode.None;
 
-        if (ButtonScript.playnumber == 10)
+        if (PlayerPrefs.GetInt("Playnumber") >= 10)
         {
              SceneManager.LoadScene("GameOverScene");
              Cursor.lockState = CursorLockMode.None;
 
-            PlayerPrefs.SetInt("Score", 100);
-            PlayerPrefs.SetInt("Playnumber", 0);
-            PlayerPrefs.SetInt("ScoreUpLevel", 1);
-            PlayerPrefs.SetInt("TimeBonusLevel", 1);
-            PlayerPrefs.SetInt("ScoreBonusLevel", 1);
-
-            ScoreManagement.GetComponent<ScoreManageScript>().score = 100;
         }
     }
 

@@ -140,7 +140,7 @@ public class PlayLogScript : MonoBehaviour
             playlog7.text = "" + PlayerPrefs.GetInt("g");
             playlog8.text = "" + PlayerPrefs.GetInt("h");
             playlog9.text = "" + PlayerPrefs.GetInt("i");
-            playlog10.text = "" + PlayerPrefs.GetInt("j");
+            playlog10.text = "" + PlayerPrefs.GetInt("10thScore");
         }
         
     }
