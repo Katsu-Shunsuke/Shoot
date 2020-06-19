@@ -45,7 +45,7 @@ public class ScoreManageScript : MonoBehaviour
         
         //textに入力
 
-        scoretext.text = score+ "円";
+        scoretext.text = score+ "";
         
         PlayerPrefs.SetInt("Score", score);
 
@@ -73,7 +73,7 @@ public class ScoreManageScript : MonoBehaviour
     {
         
         //スコアを100追加
-        score_f = 100* ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score_f = 100* (((PlayerPrefs.GetInt("ScoreUpLevel")+1) * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();
@@ -86,7 +86,7 @@ public class ScoreManageScript : MonoBehaviour
     {
 
         //スコアを500追加
-        score_f = 500 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score_f = 500 * (((PlayerPrefs.GetInt("ScoreUpLevel")+1) * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();
@@ -99,7 +99,7 @@ public class ScoreManageScript : MonoBehaviour
     {
 
         //スコアを1000追加
-        score_f = 1000 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score_f = 1000 * (((PlayerPrefs.GetInt("ScoreUpLevel")+1) * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();
@@ -112,7 +112,7 @@ public class ScoreManageScript : MonoBehaviour
     {
 
         //スコアを2000追加
-        score_f = 2000 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score_f = 2000 * (((PlayerPrefs.GetInt("ScoreUpLevel")+1) * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();
@@ -125,7 +125,7 @@ public class ScoreManageScript : MonoBehaviour
     {
 
         //スコアを5000追加
-        score_f = 5000 * ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
+        score_f = 5000 * (((PlayerPrefs.GetInt("ScoreUpLevel")+1) * 0.1f) + 0.9f);
         score += (int)score_f;
 
         Combo();

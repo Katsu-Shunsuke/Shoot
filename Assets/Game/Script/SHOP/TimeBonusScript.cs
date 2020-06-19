@@ -29,7 +29,7 @@ public class TimeBonusScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeBonusLevel = PlayerPrefs.GetInt("TimeBonusLevel");
+        timeBonusLevel = (PlayerPrefs.GetInt("TimeBonusLevel")+1);
         audiosource = GetComponent<AudioSource>();
     }
 
@@ -37,15 +37,15 @@ public class TimeBonusScript : MonoBehaviour
     void Update()
     {
         //Nowtext.text = "5combo"+ (PlayerPrefs.GetInt("TimeBonusLevel")*0.1f)+"秒";
-        ButtonText.text = "LEVEL" + PlayerPrefs.GetInt("TimeBonusLevel");
+        ButtonText.text = "LEVEL" + (PlayerPrefs.GetInt("TimeBonusLevel")+1);
 
         if (ScoreUpScript.index == 1)
         {
             
-            NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("TimeBonusLevel");
-            CostText.text =PlayerPrefs.GetInt("TimeBonusLevel") * 100 + "円";
+            NowLevelText.text = "LEVEL" + (PlayerPrefs.GetInt("TimeBonusLevel")+1);
+            CostText.text =(PlayerPrefs.GetInt("TimeBonusLevel")+1) * 100 + "";
             Image.sprite = sprite;
-            Nowtext.text = "5コンボで" + "\n" + PlayerPrefs.GetInt("TimeBonusLevel") * 0.1f + "秒追加";
+            Nowtext.text = "5コンボで" + "\n" + (PlayerPrefs.GetInt("TimeBonusLevel")+1) * 0.1f + "秒追加";
         }
         else
         {
@@ -65,7 +65,7 @@ public class TimeBonusScript : MonoBehaviour
     {
         if (ScoreUpScript.index == 1)
         {
-            levelUpCost = PlayerPrefs.GetInt("TimeBonusLevel") * 100;
+            levelUpCost = (PlayerPrefs.GetInt("TimeBonusLevel")+1) * 100;
             if (levelUpCost < PlayerPrefs.GetInt("Score"))
             {
                 int t = PlayerPrefs.GetInt("TimeBonusLevel") + 1;

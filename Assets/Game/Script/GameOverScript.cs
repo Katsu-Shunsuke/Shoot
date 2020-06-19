@@ -41,7 +41,7 @@ public class GameOverScript : MonoBehaviour
         
         if (deltascore < score)
         {
-            deltascore += score / 11;
+            deltascore += score / 110;
             score_text.text = "" + deltascore;
         }
         if (deltascore >= score)
@@ -68,14 +68,14 @@ public class GameOverScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("10thScore",score);
         SceneManager.LoadScene("HomeScene");
-        PlayerPrefs.SetInt("Score", 100);
+        PlayerPrefs.SetInt("Score", 0);
         PlayerPrefs.SetInt("Playnumber", 0);
         PlayerPrefs.SetInt("ScoreUpLevel", 1);
         //PlayerPrefs.SetInt("Level", 0);
         //layerPrefs.SetInt("LevelScore", 0);
-        PlayerPrefs.SetInt("TimeBonusLevel", 1);
-        PlayerPrefs.SetInt("ScoreBonusLevel", 1);
-        PlayerPrefs.SetInt("BallSpeedLevel", 1);
+        PlayerPrefs.SetInt("TimeBonusLevel", 0);
+        PlayerPrefs.SetInt("ScoreBonusLevel", 0);
+        PlayerPrefs.SetInt("BallSpeedLevel", 0);
 
         audiosource.PlayOneShot(audio2);
     }

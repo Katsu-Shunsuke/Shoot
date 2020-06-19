@@ -30,7 +30,7 @@ public class ScoreBonusScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreBonusLevel = PlayerPrefs.GetInt("ScoreBonusLevel");
+        ScoreBonusLevel = (PlayerPrefs.GetInt("ScoreBonusLevel")+1);
         audiosource = GetComponent<AudioSource>();
     }
 
@@ -38,15 +38,15 @@ public class ScoreBonusScript : MonoBehaviour
     void Update()
     {
         //Nowtext.text =(PlayerPrefs.GetInt("ScoreBonusLevel")*0.1f)+"%";
-        ButtonText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreBonusLevel");
+        ButtonText.text = "LEVEL" + (PlayerPrefs.GetInt("ScoreBonusLevel")+1);
 
         if (ScoreUpScript.index == 2)
         {
            
-            NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreBonusLevel");
-            CostText.text =PlayerPrefs.GetInt("ScoreBonusLevel") * 100 + "円";
+            NowLevelText.text = "LEVEL" + (PlayerPrefs.GetInt("ScoreBonusLevel")+1);
+            CostText.text =(PlayerPrefs.GetInt("ScoreBonusLevel")+1) * 100 + "";
             Image.sprite = sprite;
-            Nowtext.text = "最終スコアに" + "\n" + PlayerPrefs.GetInt("ScoreBonusLevel") * 0.1f + "%加算";
+            Nowtext.text = "最終スコアに" + "\n" + (PlayerPrefs.GetInt("ScoreBonusLevel")+1) * 1f + "%加算";
         }
         else
         {
@@ -66,7 +66,7 @@ public class ScoreBonusScript : MonoBehaviour
     {
         if (ScoreUpScript.index == 2)
         {
-            levelUpCost = PlayerPrefs.GetInt("ScoreBonusLevel") * 100;
+            levelUpCost = (PlayerPrefs.GetInt("ScoreBonusLevel")+1) * 100;
             if (levelUpCost < PlayerPrefs.GetInt("Score"))
             {
                 int t = PlayerPrefs.GetInt("ScoreBonusLevel") + 1;

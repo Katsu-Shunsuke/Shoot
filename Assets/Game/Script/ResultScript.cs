@@ -36,8 +36,8 @@ public class ResultScript : MonoBehaviour
     {
         
         //ボーナスをたす
-        scorebonus = (PlayerPrefs.GetInt("Score") - PlayerPrefs.GetInt("FirstScore"))* (PlayerPrefs.GetInt("ScoreBonusLevel") * 0.1f );
-        levelbonus = (PlayerPrefs.GetInt("Score") - PlayerPrefs.GetInt("FirstScore"))* (PlayerPrefs.GetInt("Level") * 0.1f );
+        scorebonus = (PlayerPrefs.GetInt("Score") - PlayerPrefs.GetInt("FirstScore"))* ((PlayerPrefs.GetInt("ScoreBonusLevel")+1) * 0.01f );
+        levelbonus = (PlayerPrefs.GetInt("Score") - PlayerPrefs.GetInt("FirstScore"))* ((PlayerPrefs.GetInt("Level")+1) * 0.01f );
         float finalscore_f = (PlayerPrefs.GetInt("Score") - PlayerPrefs.GetInt("FirstScore"))+scorebonus + levelbonus;
         
         //ワンプレイスコア

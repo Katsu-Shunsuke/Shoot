@@ -32,7 +32,7 @@ public class ScoreUpScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreUpLevel = PlayerPrefs.GetInt("ScoreUpLevel");
+        scoreUpLevel = (PlayerPrefs.GetInt("ScoreUpLevel")+1);
         audiosource = GetComponent<AudioSource>();
     }
 
@@ -41,15 +41,15 @@ public class ScoreUpScript : MonoBehaviour
     {
         //Text系
         //NowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);
-        ButtonText.text= "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel");
+        ButtonText.text= "LEVEL" + (PlayerPrefs.GetInt("ScoreUpLevel")+1);
 
         if (index == 0)
         {
             
-            NowLevelText.text = "LEVEL" + PlayerPrefs.GetInt("ScoreUpLevel");
-            CostText.text =(PlayerPrefs.GetInt("ScoreUpLevel") * 100) + "円";
+            NowLevelText.text = "LEVEL" + (PlayerPrefs.GetInt("ScoreUpLevel")+1);
+            CostText.text =((PlayerPrefs.GetInt("ScoreUpLevel")+1) * 100) + "";
             Image.sprite = sprite;
-            Nowtext.text = "ヒットした時の得点が" + "\n" + PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f + "%アップ";
+            Nowtext.text = "ヒットした時の得点が" + "\n" + (PlayerPrefs.GetInt("ScoreUpLevel")+1) * 1f + "%アップ";
         }
         else
         {
@@ -69,7 +69,7 @@ public class ScoreUpScript : MonoBehaviour
         
         if (index == 0)
         {
-            scoreUpCost = PlayerPrefs.GetInt("ScoreUpLevel") * 100;
+            scoreUpCost = (PlayerPrefs.GetInt("ScoreUpLevel")+1) * 100;
             if (scoreUpCost < PlayerPrefs.GetInt("Score"))
             {
                 scoreUpLevel++;

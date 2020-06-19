@@ -28,7 +28,7 @@ public class ShopScript : MonoBehaviour
     public void Update()
     {
         //所持金を表示
-        scoreText.text = PlayerPrefs.GetInt("Score") + "円";
+        scoreText.text = PlayerPrefs.GetInt("Score") + "";
 
         //Text系
         //scoreUpTextNowText.text = "×" + ((PlayerPrefs.GetInt("ScoreUpLevel") * 0.1f) + 0.9f);

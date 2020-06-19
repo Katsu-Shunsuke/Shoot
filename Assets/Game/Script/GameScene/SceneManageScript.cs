@@ -20,7 +20,7 @@ public class SceneManageScript : MonoBehaviour
     private GameObject ScoreManagement;
 
     AudioSource audiosource;
-    public AudioClip audio1;
+    public AudioClip audioClip;
 
     void Start()
     {
@@ -33,6 +33,9 @@ public class SceneManageScript : MonoBehaviour
         nowPlaying = 0;
 
         audiosource = GetComponent<AudioSource>();
+        
+        
+
     }
 
     void Update()
@@ -71,7 +74,7 @@ public class SceneManageScript : MonoBehaviour
             timer = 0.00f;
             timetext.text = "TIme:" + timer.ToString("f2");
 
-            audiosource.PlayOneShot(audio1);
+            audiosource.PlayOneShot(audioClip);
 
             nowPlaying = 0;
 
@@ -102,7 +105,7 @@ public class SceneManageScript : MonoBehaviour
 
     public static void Combobonus()
     {
-        timer += PlayerPrefs.GetInt("TimeBonusLevel") * 0.1f;
+        timer += PlayerPrefs.GetInt(("TimeBonusLevel")+1) * 0.1f;
     }
 
     

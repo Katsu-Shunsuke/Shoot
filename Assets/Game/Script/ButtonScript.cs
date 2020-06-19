@@ -28,7 +28,7 @@ public class ButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoretext_Mainscene.text =PlayerPrefs.GetInt("Score")+"円";
+        scoretext_Mainscene.text =PlayerPrefs.GetInt("Score")+"";
 
         playnumbertext.text = "PLAYCOUNT:"+PlayerPrefs.GetInt("Playnumber");
 
@@ -38,14 +38,25 @@ public class ButtonScript : MonoBehaviour
 
     public void OnClickReset()
     {
-        PlayerPrefs.SetInt("Score", 100);
+        PlayerPrefs.SetInt("Score", 0);
         PlayerPrefs.SetInt("Playnumber", 0);
-        PlayerPrefs.SetInt("ScoreUpLevel",1);
+        PlayerPrefs.SetInt("ScoreUpLevel",0);
         PlayerPrefs.SetInt("Level", 0);
         PlayerPrefs.SetInt("LevelScore", 0);
-        PlayerPrefs.SetInt("TimeBonusLevel", 1);
-        PlayerPrefs.SetInt("ScoreBonusLevel", 1);
+        PlayerPrefs.SetInt("TimeBonusLevel", 0);
+        PlayerPrefs.SetInt("ScoreBonusLevel", 0);
         PlayerPrefs.SetInt("BallSpeedLevel", 1);
+
+        PlayerPrefs.SetInt("a", 0);
+        PlayerPrefs.SetInt("b", 0);
+        PlayerPrefs.SetInt("c", 0);
+        PlayerPrefs.SetInt("d", 0);
+        PlayerPrefs.SetInt("e", 0);
+        PlayerPrefs.SetInt("f", 0);
+        PlayerPrefs.SetInt("g", 0);
+        PlayerPrefs.SetInt("h", 0);
+        PlayerPrefs.SetInt("i", 0);
+        PlayerPrefs.SetInt("10thScore", 0);
 
         ScoreManagement.GetComponent<ScoreManageScript>().score = 100;
         
